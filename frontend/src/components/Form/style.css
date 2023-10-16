@@ -1,0 +1,25 @@
+form {
+  margin: 0 10px;
+}
+
+.row-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.colum-container {
+  display: flex;
+  flex-direction: row;
+  width: 160px;
+  align-items: center;
+  justify-content: space-between;
+  margin-right: 20px;
+}
+
+.row-container .colum-container input[type=number] {
+  padding: 5px;
+  width: 60px;
+  height: 15px;
+}
+

@@ -1,0 +1,47 @@
+version: '3'
+services:
+
+  mysql:
+    image: mysql:latest
+    ports:
+      - "3306:3306"
+    profiles:
+      - db
+    environment:
+      MYSQL_ROOT_PASSWORD: Pessoas*951*
+      MYSQL_DATABASE: db_fastapi_server
+      MYSQL_USER: root
+      MYSQL_PASSWORD: Pessoas*951*
+    networks:
+      - db_server
+
+
+  backend:
+    image: pedrotonin/py-server:3.0
+    ports:
+      - "8000:8000"
+    profiles:
+      - server
+    volumes:
+      - ./backend/:/server
+    command: bash -c "cd server && uvicorn main:app --reload --host 0.0.0.0"
+    depends_on:
+      - mysql
+    networks:
+      - db_server
+
+
+  frontend:
+    image: node:latest
+    ports:
+      - "3000:3000"
+    profiles:
+      - client
+    volumes:
+      - ./frontend/:/client
+    command: bash -c "cd client && npm install && npm start"
+
+networks:
+  db_server:
+    driver: bridge
+    name: db_server
