@@ -8,10 +8,8 @@ services:
     profiles:
       - db
     environment:
-      MYSQL_ROOT_PASSWORD: Pessoas*951*
-      MYSQL_DATABASE: db_fastapi_server
-      MYSQL_USER: root
-      MYSQL_PASSWORD: Pessoas*951*
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
     networks:
       - db_server
 
