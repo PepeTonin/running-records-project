@@ -1,10 +1,8 @@
 version: '3'
 services:
 
-  mysql:
+  db_server:
     image: mysql:latest
-    ports:
-      - "3306:3306"
     profiles:
       - db
     environment:
@@ -23,8 +21,6 @@ services:
     volumes:
       - ./backend/:/server
     command: bash -c "cd server && uvicorn main:app --reload --host 0.0.0.0"
-    depends_on:
-      - mysql
     networks:
       - db_server
 
@@ -38,6 +34,7 @@ services:
     volumes:
       - ./frontend/:/client
     command: bash -c "cd client && npm install && npm start"
+    
 
 networks:
   db_server:
