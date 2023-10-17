@@ -18,7 +18,7 @@ docker compose --profile server up -d
 ``` bash
 docker compose --profile client up -d
 ```
-5. Agora é só acessar <localhost:3000> para acessar o programa :)
+5. Agora é só acessar <http://localhost:3000> para acessar o programa :)
 
 **É necessário aguardar um tempo até que todos os containers iniciem corretamente**
 
