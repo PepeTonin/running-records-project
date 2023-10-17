@@ -7,6 +7,7 @@ MYSQL_DATABASE=db_server
 ```
 **Esses valores são os padrões do servidor e devem ser os mesmos das variáveis de ambiente**
 
+
 2.  Depois, dentro da pasta que contém o aquivo "docker-compose.yaml", para subir o container do banco de dados use:
 ``` bash
 docker compose --profile db up -d
